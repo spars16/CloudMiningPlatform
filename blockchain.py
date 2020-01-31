@@ -2,7 +2,8 @@ import hashlib
 import json
 from time import time
 from urllib.parse import urlparse
-import request
+from flask import request
+
 
 class Blockchain(object):
     def __init__(self):
@@ -63,11 +64,11 @@ class Blockchain(object):
      # ----------------------------------------------------
 
 
-     def valid_chain(self, chain):
-         last_block = chain[0]
-         current_index = 1
+    def valid_chain(self, chain):
+        last_block = chain[0]
+        current_index = 1
 
-         while len(chain) > current_index:
+        while len(chain) > current_index:
             block = chain[current_index]
 
             print(f'{last_block}')
