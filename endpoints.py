@@ -1,13 +1,10 @@
 import json
 from flask import jsonify, request
 from uuid import uuid4
-from blockchain import Blockchain
 
-def endpoints(app):
+def endpoints(app, blockchain):
     # generate a globally unique address for this node
     node_identifier = str(uuid4()).replace('-', '')
-    # instantiate blockchain
-    blockchain = Blockchain()
 
     # testing endpoint
     @app.route('/')
