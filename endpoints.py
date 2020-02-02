@@ -35,7 +35,10 @@ def endpoints(app, blockchain):
         # run PoW algorithm and get next proof
         last_block = blockchain.last_block
         last_proof = last_block['proof']
-        proof = blockchain.proof_of_work(last_proof)
+        proof = blockchain.proof_of_work(last_proof) # add upper value and lower value
+
+        # if proof == -1:
+        #     return nil, 200 # correct HTTP status code ??
 
         # recieve reward for mining
         blockchain.new_transaction(

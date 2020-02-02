@@ -47,22 +47,26 @@ class Blockchain(object):
         block_string = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha256(block_string).hexdigest()
 
-
-    # @TODO EDIT PROOF OF WORK AND VALID PROOF METHODS TO GENERALIZE FOR DIFFERENT CRYPTOCURRENCIES
     # ----------------------------------------------------
+    # def proof_of_work(self, last_proof, lower_value, upper_value):
+        # proof = lower_value
     def proof_of_work(self, last_proof):
         proof = 0
         while self.valid_proof(last_proof, proof) is False:
+            # if (proof >= upper_value):
+            #     return -1
             proof += 1
         return proof
 
+    # TODO 
+    # EDIT VALID PROOF METHOD TO GENERALIZE FOR DIFFERENT CRYPTOCURRENCIES 
+    # (number of zeros)
     @staticmethod
     def valid_proof(last_proof, proof):
         guess = f'{last_proof}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
         return guess_hash[:4] == "0000"
      # ----------------------------------------------------
-
 
     def valid_chain(self, chain):
         last_block = chain[0]
