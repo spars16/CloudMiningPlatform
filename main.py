@@ -15,7 +15,7 @@ def main():
     blockchain = Blockchain()
 
     endpoints.endpoints(app, blockchain)
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
 # def np_worker():
 #     print("worker processing")
