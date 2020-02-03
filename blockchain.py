@@ -93,11 +93,12 @@ class Blockchain(object):
         # Consensus Algorithm, resolves conflicts by defaulting to the longest chain
 
         neighbors = self.nodes
+        new_chain = None
         # only looking at chains longer than the current chain
         max_length = len(self.chain)
 
         # verify all chains on the network
-        for node in neighbours:
+        for node in neighbors:
             response = requests.get(f'http://{node}/chain')
 
             if response.status_code == 200:

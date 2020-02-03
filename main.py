@@ -6,7 +6,7 @@ import endpoints
 # from multiprocessing import Pool
 
 THREADS = os.cpu_count()
-data = ((1, 1000), (1001, 2000), (2001, 3000), (3001, 4000))
+# data = ((1, 1000), (1001, 2000), (2001, 3000), (3001, 4000))
 
 def main():
     # instantiate flask node
